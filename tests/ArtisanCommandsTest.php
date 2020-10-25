@@ -4,18 +4,11 @@ namespace BenSampo\Enum\Tests;
 
 use BenSampo\Enum\Tests\Enums\Annotate\AnnotateTestOneEnum;
 use BenSampo\Enum\Tests\Enums\MixedKeyFormatsAnnotated;
-use BenSampo\Enum\Tests\Models\AnnotatedExample;
-use BenSampo\Enum\Tests\Models\AnnotatedLargeExample;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Filesystem\Filesystem;
 
 class ArtisanCommandsTest extends ApplicationTestCase
 {
-    /**
-     * TODO remove once we cut support for Laravel < 5.7
-     */
-    public $mockConsoleOutput = false;
-
     public function test_artisan_commands_are_registered()
     {
         $commands = $this->app[Kernel::class]->all();
@@ -91,22 +84,6 @@ class ArtisanCommandsTest extends ApplicationTestCase
         );
 
         $newClass = $fileSystem->get(__DIR__ . '/Enums/MixedKeyFormatsAnnotated.php');
-        $this->assertSame($original, $newClass);
-    }
-
-    public function test_annotate_model_with_existing_large_docblock()
-    {
-        /** @var Filesystem $fileSystem */
-        $fileSystem = $this->app[Filesystem::class];
-
-        $original = $fileSystem->get(__DIR__ . '/Models/AnnotatedExample.php');
-
-        $this->assertSame(
-            0,
-            $this->artisan('enum:annotate-model', ['class' => AnnotatedLargeExample::class])
-        );
-
-        $newClass = $fileSystem->get(__DIR__ . '/Models/AnnotatedExample.php');
         $this->assertSame($original, $newClass);
     }
 }

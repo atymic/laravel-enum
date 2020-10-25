@@ -432,7 +432,7 @@ Since `Enum::class` implements the `Castable` contract, you just need to specify
 
 ```php
 use BenSampo\Enum\Traits\CastsEnums;
-use BenSampo\Enum\Tests\Enums\UserType;
+use BenSampo\Enum\Tests\Unit\Enums\UserType;
 use Illuminate\Database\Eloquent\Model;
 
 class Example extends Model
@@ -907,7 +907,7 @@ var_dump(UserType::getInstances());
 
 array(4) {
   'Administrator' =>
-  class BenSampo\Enum\Tests\Enums\UserType#415 (3) {
+  class BenSampo\Enum\Tests\Unit\Enums\UserType#415 (3) {
     public $key =>
     string(13) "Administrator"
     public $value =>
@@ -916,7 +916,7 @@ array(4) {
     string(13) "Administrator"
   }
   'Moderator' =>
-  class BenSampo\Enum\Tests\Enums\UserType#396 (3) {
+  class BenSampo\Enum\Tests\Unit\Enums\UserType#396 (3) {
     public $key =>
     string(9) "Moderator"
     public $value =>
@@ -925,7 +925,7 @@ array(4) {
     string(9) "Moderator"
   }
   'Subscriber' =>
-  class BenSampo\Enum\Tests\Enums\UserType#393 (3) {
+  class BenSampo\Enum\Tests\Unit\Enums\UserType#393 (3) {
     public $key =>
     string(10) "Subscriber"
     public $value =>
@@ -934,7 +934,7 @@ array(4) {
     string(10) "Subscriber"
   }
   'SuperAdministrator' =>
-  class BenSampo\Enum\Tests\Enums\UserType#102 (3) {
+  class BenSampo\Enum\Tests\Unit\Enums\UserType#102 (3) {
     public $key =>
     string(18) "SuperAdministrator"
     public $value =>
